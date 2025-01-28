@@ -7,6 +7,7 @@ const mainRoute = require('./routes/main');
 const secondary = require('./routes/secondaryRoute');
 
 const app = express();
+app.use(express.json());
  
  app.use(cors());
  app.use(bodyParser.json({extended:false}));

@@ -3,7 +3,7 @@ const mainContent = document.getElementById("main-content");
 const popupForm = document.getElementById("popup-form");
 
 async function fetchTables() {
-    const response = await fetch("/tables");
+    const response = await fetch("http://localhost:3800/tables");
     const { tables } = await response.json();
     sideMenu.innerHTML = "";
     tables.forEach((table) => {
@@ -15,7 +15,7 @@ async function fetchTables() {
 }
 
 async function fetchTableData(tableName) {
-    const response = await fetch(`/table/${tableName}`);
+    const response = await fetch(`http://localhost:3800/table/${tableName}`);
     const { data } = await response.json();
 
     const tableDisplay = document.getElementById("table-display");
@@ -25,7 +25,6 @@ async function fetchTableData(tableName) {
     const thead = table.querySelector("thead");
     const tbody = table.querySelector("tbody");
 
-      // Render headers
     if (data.length > 0) {
         const headers = Object.keys(data[0]);
         const headerRow = document.createElement("tr");
